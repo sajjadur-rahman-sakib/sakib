@@ -82,12 +82,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
   }
 
   void _onTapAddButton() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const AddNewTaskScreen(),
-      ),
-    );
+    Get.to(const AddNewTaskScreen());
   }
 
   Widget _buildSummarySection() {

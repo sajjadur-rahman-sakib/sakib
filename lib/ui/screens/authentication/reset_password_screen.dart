@@ -1,13 +1,14 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import '../../../data/models/network_response.dart';
-import '../../../data/network_caller/network_caller.dart';
-import '../../../data/utilities/urls.dart';
-import '../../utility/app_colors.dart';
-import '../../widgets/backgroundwidget.dart';
-import '../../widgets/centered_progress_indicator.dart';
-import '../../widgets/snack_bar_message.dart';
-import 'sign_in_screen.dart';
+import 'package:get/get.dart';
+import 'package:sakib/data/models/network_response.dart';
+import 'package:sakib/data/network_caller/network_caller.dart';
+import 'package:sakib/data/utilities/urls.dart';
+import 'package:sakib/ui/screens/authentication/sign_in_screen.dart';
+import 'package:sakib/ui/utility/app_colors.dart';
+import 'package:sakib/ui/widgets/backgroundwidget.dart';
+import 'package:sakib/ui/widgets/centered_progress_indicator.dart';
+import 'package:sakib/ui/widgets/snack_bar_message.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
   const ResetPasswordScreen(
@@ -129,11 +130,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
       if (mounted) {
         showSnackBarMessage(
             context, response.errorMessage ?? 'Reset password! Try Login now.');
-        Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (context) => const SignInScreen()),
-          (route) => false,
-        );
+        Get.offAll(const SignInScreen());
       }
     } else {
       if (mounted) {

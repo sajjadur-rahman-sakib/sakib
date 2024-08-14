@@ -1,13 +1,14 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import '../../../data/models/network_response.dart';
-import '../../../data/network_caller/network_caller.dart';
-import '../../../data/utilities/urls.dart';
-import '../../utility/app_colors.dart';
-import '../../widgets/backgroundwidget.dart';
-import '../../widgets/centered_progress_indicator.dart';
-import '../../widgets/snack_bar_message.dart';
-import 'pin_verification_screen.dart';
+import 'package:get/get.dart';
+import 'package:sakib/data/models/network_response.dart';
+import 'package:sakib/data/network_caller/network_caller.dart';
+import 'package:sakib/data/utilities/urls.dart';
+import 'package:sakib/ui/screens/authentication/pin_verification_screen.dart';
+import 'package:sakib/ui/utility/app_colors.dart';
+import 'package:sakib/ui/widgets/backgroundwidget.dart';
+import 'package:sakib/ui/widgets/centered_progress_indicator.dart';
+import 'package:sakib/ui/widgets/snack_bar_message.dart';
 
 class EmailVerificationScreen extends StatefulWidget {
   const EmailVerificationScreen({super.key});
@@ -87,7 +88,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   }
 
   void _onTapSignInButton() {
-    Navigator.pop(context);
+    Get.back();
   }
 
   void _onTapConfirmButton() {
@@ -107,12 +108,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
     }
     if (response.isSuccess && response.responseData['status'] == 'success') {
       if (mounted) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => PinVerificationScreen(email: email),
-          ),
-        );
+        Get.to(PinVerificationScreen(email: email));
       }
     } else {
       if (mounted) {

@@ -1,15 +1,15 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../controllers/sign_in_controller.dart';
-import '../../utility/app_colors.dart';
-import '../../utility/app_constants.dart';
-import '../../widgets/backgroundwidget.dart';
-import '../../widgets/centered_progress_indicator.dart';
-import '../../widgets/snack_bar_message.dart';
-import '../main_bottom_nav_screen.dart';
-import 'email_verification_screen.dart';
-import 'sign_up_screen.dart';
+import 'package:sakib/ui/controllers/sign_in_controller.dart';
+import 'package:sakib/ui/screens/authentication/email_verification_screen.dart';
+import 'package:sakib/ui/screens/authentication/sign_up_screen.dart';
+import 'package:sakib/ui/screens/main_bottom_nav_screen.dart';
+import 'package:sakib/ui/utility/app_colors.dart';
+import 'package:sakib/ui/utility/app_constants.dart';
+import 'package:sakib/ui/widgets/backgroundwidget.dart';
+import 'package:sakib/ui/widgets/centered_progress_indicator.dart';
+import 'package:sakib/ui/widgets/snack_bar_message.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -145,21 +145,11 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   void _onTapSignUpButton() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const SignUpScreen(),
-      ),
-    );
+    Get.to(const SignUpScreen());
   }
 
   void _onTapForgotPasswordButton() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const EmailVerificationScreen(),
-      ),
-    );
+    Get.to(const EmailVerificationScreen());
   }
 
   @override

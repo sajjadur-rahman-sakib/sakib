@@ -1,15 +1,16 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import '../../../data/models/network_response.dart';
-import '../../../data/network_caller/network_caller.dart';
-import '../../../data/utilities/urls.dart';
-import '../../utility/app_colors.dart';
-import '../../widgets/backgroundwidget.dart';
-import '../../widgets/centered_progress_indicator.dart';
-import '../../widgets/snack_bar_message.dart';
-import 'reset_password_screen.dart';
-import 'sign_in_screen.dart';
+import 'package:sakib/data/models/network_response.dart';
+import 'package:sakib/data/network_caller/network_caller.dart';
+import 'package:sakib/data/utilities/urls.dart';
+import 'package:sakib/ui/screens/authentication/reset_password_screen.dart';
+import 'package:sakib/ui/screens/authentication/sign_in_screen.dart';
+import 'package:sakib/ui/utility/app_colors.dart';
+import 'package:sakib/ui/widgets/backgroundwidget.dart';
+import 'package:sakib/ui/widgets/centered_progress_indicator.dart';
+import 'package:sakib/ui/widgets/snack_bar_message.dart';
 
 class PinVerificationScreen extends StatefulWidget {
   const PinVerificationScreen({super.key, required this.email});
@@ -136,13 +137,10 @@ class _PinVerificationScreenState extends State<PinVerificationScreen> {
     }
     if (response.isSuccess && response.responseData['status'] == 'success') {
       if (mounted) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ResetPasswordScreen(
-              email: widget.email,
-              otp: otp,
-            ),
+        Get.to(
+          ResetPasswordScreen(
+            email: widget.email,
+            otp: otp,
           ),
         );
       }

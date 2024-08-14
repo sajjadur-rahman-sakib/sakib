@@ -214,7 +214,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void _onTapSignInButton() {
-    Navigator.pop(context);
+    Get.back();
   }
 
   @override

@@ -1,6 +1,7 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:sakib/ui/controllers/auth_controller.dart';
 import 'package:sakib/ui/screens/authentication/sign_in_screen.dart';
 import 'package:sakib/ui/screens/update_profile_screen.dart';
@@ -69,12 +70,7 @@ AppBar profileAppBar(context, [bool fromUpdateProfile = false]) {
       IconButton(
         onPressed: () async {
           await AuthController.clearAllData();
-          Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const SignInScreen(),
-              ),
-              (route) => false);
+          Get.offAll(const SignInScreen());
         },
         icon: const Icon(Icons.logout),
       )
